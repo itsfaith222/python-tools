@@ -48,12 +48,12 @@ while True:
         print("Scanning well known ports... ")
         common_ports = [80, 443, 21, 22, 23, 25, 53, 5353]
         scan_ports(target, common_ports) 
-        return 1
+        break
     elif option == "2":
         port = []
         port.append(input("Enter the port number to scan: "))
         scan_ports(target, port) 
-        return 1
+        break
     else:
         print("Invalid option, Try again") 
 
