@@ -11,7 +11,7 @@ def scan_ports(device, range):
         #create a tcp socket
         sock = socket.socket(
             socket.AF_INET,
-            socket.SOCK_STREAM | socket.SOCK_NONBLOCK) 
+            socket.SOCK_STREAM) 
 
         #setting the timeout for the socket 
         timeout = 1 
