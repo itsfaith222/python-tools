@@ -27,8 +27,8 @@ def scan_ports(device, range):
         finally: 
             sock.close()
 
-        #end of all scans/program
-        print(f'Ports {range} have been scanned and report if open or not. end of program')
+    #end of all scans/program
+    print(f'\nPorts {range} have been scanned and report if open or not. end of program')
 
 
     
