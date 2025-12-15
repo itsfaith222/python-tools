@@ -46,7 +46,7 @@ while True:
 
     if option == "1": 
         print("Scanning well known ports... ")
-        common_ports = [80, 443, 21, 22, 23, 25, 53, 5353]
+        common_ports = [80, 443, 21, 22, 23, 25, 53, 8080, 445, 88]
         scan_ports(target, common_ports) 
         break
     elif option == "2":
