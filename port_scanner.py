@@ -21,7 +21,6 @@ def scan_ports(device, range):
             sock.connect((device, port))
             #if the connection is successful, print port number and connection successful
             print(f'Connection to port {port} was susseful. {port}= Open')
-            return 0
         except: 
             print(f'Connection to port {port} failed. {port}= Closed')
         finally: 
