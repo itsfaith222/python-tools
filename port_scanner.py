@@ -14,7 +14,7 @@ def scan_ports(device, range):
             socket.SOCK_STREAM) 
 
         #setting the timeout for the socket 
-        timeout = 1 
+        timeout = 2
         sock.settimeout(timeout)
 
         #try to connect to the ip port
