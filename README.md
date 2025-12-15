@@ -1,7 +1,7 @@
 # python-tools
 Security scripts and tools written in Python to learn how they work
 
-####Python Port Scanner
+## Python Port Scanner
 
 ## Description
 This project is a TCP port scanner written in Python using the `socket` module. It allows users to scan a set of common ports or test a specific port on a given target IP or hostname. The goal of this project was to learn how basic port scanning works at the socket level and to reflect on how tools like Nmap behave differently than hand-built scanners.
