@@ -28,7 +28,8 @@ def scan_ports(device, range):
             sock.close()
 
     #end of all scans/program
-    print(f'\nPorts {range} have been scanned and report if open or not. end of program')
+    print(f'\nPorts have been scanned and report if open or not. end of program')
+    
 
 
     
@@ -47,10 +48,12 @@ while True:
         print("Scanning well known ports... ")
         common_ports = [80, 443, 21, 22, 23, 25, 53, 5353]
         scan_ports(target, common_ports) 
+        return 1
     elif option == "2":
         port = []
         port.append(input("Enter the port number to scan: "))
         scan_ports(target, port) 
+        return 1
     else:
         print("Invalid option, Try again") 
 
