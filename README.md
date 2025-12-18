@@ -14,6 +14,7 @@ This project is a TCP port scanner written in Python using the `socket` module. 
 - Includes safety features (timeout, clean output)
 
 ## 🧪 How to Run
+
 ```bash
 python port_scanner.py
 ```
