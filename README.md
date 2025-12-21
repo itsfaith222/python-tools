@@ -1,7 +1,7 @@
 # python-tools
 Security scripts and tools written in Python to learn how they work
 
-## 🔍 Python Port Scanner
+# 🔍 Python Port Scanner
 
 ## 📄 Description
 This project is a TCP port scanner written in Python using the `socket` module. It allows users to scan a set of common ports or test a specific port on a given target IP or hostname. The goal of this project was to learn how basic port scanning works at the socket level and to reflect on how tools like Nmap behave differently than hand-built scanners.
@@ -69,6 +69,43 @@ You'll be prompted to:
 - Handle IPv6 scanning
 - Export results to a `.txt` or `.json` file
 - Handle connection timeouts with retry logic 
+
+
+# 🔍 Log Parser Tool
+
+A simple Python script that scans and analyzes Apache-style log files to identify failed login attempts, suspicious activity, and frequently active IP addresses.
+
+## 📄 What It Does
+This tool reads through a web server log file line by line and extracts:
+- Total number of log entries scanned  
+- Number of **failed login attempts** (status codes `401`, `403`, or `404`)  
+- The **top 5 IP addresses** by total requests  
+- Suspicious activity is written to `suspicious_logs.log`
+
+## 🧠 What I Learned
+- How Apache-style log files are structured  
+- How to use `regex` to extract key log fields (IP, timestamp, request, status code)  
+- How to identify failed login attempts or suspicious paths  
+- How attackers might hide in "noisy" logs  
+- How to build simple alert logic using Python and `Counter`
+
+## 🧪 Example Log Line Parsed
+192.168.1.5 - - [15/Dec/2025:14:52:10] "GET /admin HTTP/1.1" 403 498
+
+From this, the parser extracts:
+- IP: `192.168.1.5`  
+- Timestamp: `15/Dec/2025:14:52:10`  
+- Request: `GET /admin HTTP/1.1`  
+- Status Code: `403`
+
+## ⚙️ How to Use
+
+#### ✅ Run the script:
+
+```bash
+python log_parser.py access.log
+```
+Replace access.log with path to your log file. Use access.log to test using my test log file. 
 
 ## 🙌 Author
 Faith Aikhionbare
