@@ -4,7 +4,7 @@ Security scripts and tools written in Python to learn how they work
 ## Tools in this Repo
 - [Port Scanner](#-python-port-scanner-Tool)
 - [Log Parser](#-log-parser-tool)
-- [Recon-Report] (#-Reconnaissance-Practice-Report-(Learning-Folder))
+- [Recon Report](#-Reconnaissance-Practice-Report-(Learning-Folder))
 - [Upcoming: Brute Forcer...]
 
 # 🔍 Python Port Scanner Tool
