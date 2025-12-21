@@ -2,11 +2,12 @@
 Security scripts and tools written in Python to learn how they work
 
 ## Tools in this Repo
-- [Port Scanner](#-python-port-scanner)
+- [Port Scanner](#-python-port-scanner-Tool)
 - [Log Parser](#-log-parser-tool)
+- [Recon-Report] (#-Reconnaissance-Practice-Report-(Learning-Folder))
 - [Upcoming: Brute Forcer...]
 
-# 🔍 Python Port Scanner
+# 🔍 Python Port Scanner Tool
 
 ## 📄 Description
 This project is a TCP port scanner written in Python using the `socket` module. It allows users to scan a set of common ports or test a specific port on a given target IP or hostname. The goal of this project was to learn how basic port scanning works at the socket level and to reflect on how tools like Nmap behave differently than hand-built scanners.
@@ -111,6 +112,64 @@ From this, the parser extracts:
 python log_parser.py access.log
 ```
 Replace access.log with path to your log file. Use access.log to test using my test log file. 
+
+# Reconnaissance Practice Report (Learning Folder)
+
+As part of my Phase 1 roadmap, I created a `learning-recon/` folder where I ran common reconnaissance tools and documented the process with **screenshots** and a professional-style **Recon Report**.
+
+## 💻 Tools Used
+All commands were run in **WSL (Windows Subsystem for Linux)** inside Ubuntu. This helped me practice in a Linux-based terminal environment while working on a Windows host system.
+
+## 🔍 Recon Report Summary
+The report focused on the public host `scanme.nmap.org`, which is provided by Nmap for educational purposes.
+
+## ✅ Passive Recon
+Tools used:
+- `whois`
+- `nslookup`
+- `dig`
+
+Findings:
+- `whois` returned info about IP ownership, including phone numbers, links, and domain dates, but scanme.nmap.org did not show all the info because it is a test machine for port scanning. 
+- `nslookup` returned hostnames and resolved IPs.
+- `dig` showed more technical DNS info and flags, although I found the output harder to read at first.
+
+## ✅ Active Recon
+Tools used:
+- `traceroute`
+- `ping`
+- Custom `port_scanner.py`
+
+Findings:
+- `traceroute` showed **20 hops** from my computer to scanme.nmap.org (latency: ~85.7ms)
+- `ping` confirmed that the target was reachable
+- My port scanner confirmed open ports (80, 22) and reinforced what I had learned about socket behavior
+
+## 🧠 What I Learned
+- **Reconnaissance** is the *initial phase* of cybersecurity investigations. A way to gather information to understanda system before deeper analysis or exploitation.
+- **Passive Recon** means gathering public info from the system (e.g., DNS lookups).
+- **Active Recon** means gathering data by sending packets or creating traffic (e.g., port scanning).
+- I learned about **IP addresses**, **DNS servers**, and **how attackers or analysts gather this data** to understand a system.
+- I also realized that **recon reports** are used like *periodic health checks* before/after incidents and are not really done daily, but they are done often.
+
+## 💥 Challenges Faced
+- My **Windows Server 2022 VM** gave errors when trying to install WSL. So I used my host machine’s Ubuntu WSL to run tools instead.
+- Some tools like `dig` had unfamiliar output (UDP flags, TTL, etc.), but I still learned to recognize server IPs and DNS data.
+- I had never created a professional-style recon report before, but I learned how to structure and document it effectively.
+
+## 🖼️ Screenshot Evidence
+All screenshots of commands and outputs are stored in the `learning-recon/screenshots/` folder for reference.
+
+## 📄 Report File
+A Markdown version of the full **Reconnaissance Report** is included in `learning-recon/recon_report.md`.
+
+🧠 **Reflection Summary:**
+This hands-on recon activity helped me move beyond theory and understand how professional cybersecurity workflows begin. It connected to:
+- **Digital forensics**
+- **System health checks**
+- **Pre-exploitation intelligence**
+- And how to analyze output from common Linux tools.
+
 
 ## 🙌 Author
 Faith Aikhionbare
