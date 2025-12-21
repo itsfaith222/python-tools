@@ -4,7 +4,7 @@ Security scripts and tools written in Python to learn how they work
 ## Tools in this Repo
 - [Port Scanner](#-python-port-scanner-Tool)
 - [Log Parser](#-log-parser-tool)
-- [Recon Report](#reconnaissance-practice-report-learning-folder)
+- [Recon Report](#reconnaissance-practice-report)
 - [Upcoming: Brute Forcer...]
 
 # 🔍 Python Port Scanner Tool
@@ -113,7 +113,7 @@ python log_parser.py access.log
 ```
 Replace access.log with path to your log file. Use access.log to test using my test log file. 
 
-# Reconnaissance Practice Report (Learning Folder)
+# Reconnaissance Practice Report
 
 As part of my Phase 1 roadmap, I created a `learning-recon/` folder where I ran common reconnaissance tools and documented the process with **screenshots** and a professional-style **Recon Report**.
 
