@@ -8,7 +8,8 @@
 
 #this is the module for regular expressions, so i can take out the data from each line of the logs
 import re 
-from collections import Counter 
+from collections import Counter #used for the ip counting
+import sys #used for command line arguments 
 
 #important variables
 failed_attempts= []     #list to store failed login attempts
@@ -19,7 +20,10 @@ total_lines = 0
 #main function putting the log in the logfile variable then calling the parse_log function
 def main(): 
     #main function where the log parsing will run 
-    log_file = "access.log"
+    if len(sys.argv) != 2:
+        print("usage: python log_parser.py <logfile>")
+        sys.exit(1)
+    log_file = sys.argv[1]
     parse_log(log_file)
 
     #output results summary
@@ -40,20 +44,24 @@ def main():
 
 #parse log function to open the log file and read it line by line
 def parse_log(log):
+    #tell python to use the global variables 
+    global total_lines, failed_code_counts, failed_attempts, ip_counter 
     with open(log, 'r') as file:
         for line in file: 
             #print(line) #for testing purposes
             total_lines += 1 #increment total lines counter
 
-        #used to extract the pattern for the ip address, timestamp and the other colums
-        #Example: 192.168.1.5 - - [15/Dec/2025:14:52:10] "GET /admin HTTP/1.1" 403 498
-        match = re.match(r'(\d+\.\d+\.\d+\.\d+).*?\[(.*?)\] "(.*?)" (\d+)', line) 
-        
-        if match: 
-            ip = match.group(1)
-            timestamp = match.group(2)
-            command = match.group(3)
-            staus_code = int(match.group(4))
+            #used to extract the pattern for the ip address, timestamp and the other colums
+            #Example: 192.168.1.5 - - [15/Dec/2025:14:52:10] "GET /admin HTTP/1.1" 403 498
+            match = re.match(
+                r'(\d+\.\d+\.\d+\.\d+).*?\[(.*?)\] "(.*?)" (\d+)', 
+                line) 
+            
+            if match: 
+                ip = match.group(1)
+                timestamp = match.group(2)
+                command = match.group(3)
+                staus_code = int(match.group(4))
 
             #count the ips 
             ip_counter[ip] += 1
