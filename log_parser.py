@@ -59,7 +59,7 @@ def parse_log(log):
             ip_counter[ip] += 1
 
             #flags for supisous status codes
-            if staus_code == 401: 
+            if staus_code in [401, 403, 404]: 
                 failed_attempts.append(line)
                 failed_code_counts += 1
 
