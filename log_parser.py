@@ -38,7 +38,7 @@ def main():
 
     with open("suspicious_logs.log", "w") as output_file:
         for i in failed_attempts:
-            output_file.write(i + "\n")
+            output_file.write(i)
     print("\nSuspicious entries saved to suspicious_output.txt")
 
 
